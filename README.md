@@ -8,3 +8,6 @@ Assignment 02: Pathing
 
 Assignment 03: Genetic Algorithms
 
+Assignment 04: Minimax
+
+Assignment 05: Alpha-Beta Pruning
