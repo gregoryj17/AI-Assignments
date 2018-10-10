@@ -50,9 +50,12 @@ public class Game {
     void playGame(GamePlayer a, GamePlayer b){
         board = new int[9];
         while(!isWon()){
-            if(!tryMove(a.getMove(board), 1)){
-                System.out.println("X has made an illegal move. O wins.");
-                break;
+            boolean moved=false;
+            while(!moved){
+                moved=tryMove(a.getMove(board), 1);
+                if(!moved){
+                    System.out.println("Invalid move. Please pick a valid move.");
+                }
             }
             if(isOver()){
                 break;
@@ -116,7 +119,9 @@ class HumanPlayer implements GamePlayer{
         }
 
         System.out.print("\nYour move: ");
-
+        while(!scan.hasNextInt()){
+            scan.next();
+        }
         return scan.nextInt()-1;
     }
 }
@@ -157,7 +162,7 @@ class AIPlayer implements GamePlayer{
 			int value=Integer.MAX_VALUE;
 			for(int i=0;i<board.length;i++) {
 				if(board[i]==0){
-				value = Integer.min(value, minimax(board.clone(), i, 1));
+				    value = Integer.min(value, minimax(board.clone(), i, 1));
 				}
 			}
 			return value;
