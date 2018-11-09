@@ -554,9 +554,12 @@ class ChessState {
 		}
 
 		boolean white = true;
+		int moves=0;
 		while(Math.abs(s.heuristic(new Random()))<500){
 			if(getMove(s, white, white?p1:p2))break;
 			white=!white;
+			moves++;
+			s.printBoard(System.out);
 		}
 		if(s.heuristic(new Random())>500)System.out.println("Light wins!");
 		else if(s.heuristic(new Random())<-500)System.out.println("Dark wins!");
