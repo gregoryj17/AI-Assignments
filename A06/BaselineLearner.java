@@ -24,8 +24,10 @@ class BaselineLearner extends SupervisedLearner
 		}
 	}
 
-	void predict(double[] in, double[] out)
+	double[] predict(double[] in)
 	{
+		double[] out = new double[mode.length];
 		Vec.copy(out, mode);
+		return out;
 	}
 }

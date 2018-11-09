@@ -38,6 +38,9 @@ class Main
 	public static void main(String[] args)
 	{
 		testLearner(new BaselineLearner());
-		//testLearner(new RandomForest(50));
+		long seed = 8286554043L;
+		testLearner(new DecisionTree(seed));
+		long seed2 = 6179547507L;
+		testLearner(new RandomForest(30, seed2));
 	}
 }

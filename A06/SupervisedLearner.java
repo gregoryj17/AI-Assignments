@@ -12,7 +12,7 @@ abstract class SupervisedLearner
 	abstract void train(Matrix features, Matrix labels);
 
 	/// Make a prediction
-	abstract void predict(double[] in, double[] out);
+	abstract double[] predict(double[] in);
 
 	/// Measures the misclassifications with the provided test data
 	int countMisclassifications(Matrix features, Matrix labels)
@@ -24,7 +24,7 @@ abstract class SupervisedLearner
 		for(int i = 0; i < features.rows(); i++)
 		{
 			double[] feat = features.row(i);
-			predict(feat, pred);
+			pred = predict(feat);
 			double[] lab = labels.row(i);
 			for(int j = 0; j < lab.length; j++)
 			{
