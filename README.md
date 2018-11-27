@@ -15,3 +15,5 @@ Assignment 05: Alpha-Beta Pruning
 Assignment 06: Decision Trees and Random Forest
 
 Assignment 07: Q-Learning
+
+Assignment 08: Torch the Flag
